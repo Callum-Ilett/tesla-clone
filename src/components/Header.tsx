@@ -45,7 +45,7 @@ const Header = () => {
             <Link href="#">Tesla Account</Link>
           </Menu.Item>
 
-          <Menu.Item onClick={() => setIsOpen(true)}>
+          <Menu.Item className="menu-icon" onClick={() => setIsOpen(true)}>
             <MenuIcon />
           </Menu.Item>
         </Menu>
@@ -127,13 +127,17 @@ const Nav = styled.nav`
 
   overflow-x: hidden;
 
-  & ul:nth-child(2) {
+  & ul li {
     display: none;
   }
 
+  .menu-icon {
+    display: block;
+  }
+
   @media (min-width: 1024px) {
-    & ul:nth-child(2) {
-      display: flex;
+    & ul li {
+      display: block;
     }
   }
 `;
