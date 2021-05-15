@@ -13,6 +13,14 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
 @keyframes animateDown {
   0%,
   20%,

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Fade } from "react-awesome-reveal";
 
 interface Props {
   title: string;
@@ -18,25 +19,32 @@ const Section = (props: Props) => {
   } = props;
 
   return (
-    <Wrap backgroundImage={backgroundImage}>
+    <Background backgroundImage={backgroundImage}>
       <ItemText>
-        <Heading>{title}</Heading>
-        <SubHeading>{description}</SubHeading>
+        <Fade direction="up">
+          <Heading>{title}</Heading>
+        </Fade>
+
+        <Fade>
+          <SubHeading>{description}</SubHeading>
+        </Fade>
       </ItemText>
 
       <Buttons>
-        <ButtonGroup>
-          <Button color="primary">{leftBtnText}</Button>
-          {rightBtnText && <Button color="secondary">{rightBtnText}</Button>}
-        </ButtonGroup>
+        <Fade>
+          <ButtonGroup>
+            <Button color="primary">{leftBtnText}</Button>
+            {rightBtnText && <Button color="secondary">{rightBtnText}</Button>}
+          </ButtonGroup>
+        </Fade>
 
         <DownArrow src="/images/down-arrow.svg" />
       </Buttons>
-    </Wrap>
+    </Background>
   );
 };
 
-const Wrap = styled.div<{ backgroundImage: string }>`
+const Background = styled.section<{ backgroundImage: string }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,14 +58,16 @@ const Wrap = styled.div<{ backgroundImage: string }>`
 `;
 
 const ItemText = styled.div`
-  padding-top: 15vh;
+  margin-top: 15vh;
   text-align: center;
 `;
 
 const Heading = styled.h1``;
 const SubHeading = styled.p``;
 
-const Buttons = styled.div``;
+const Buttons = styled.div`
+  text-align: center;
+`;
 const ButtonGroup = styled.div`
   display: flex;
   flex-direction: column;
